@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Forms Validation | Obama - Responsive admin template.</title>
+    <link rel="shortcut icon" href="../../static/adminResources/imgages/favicon.ico">
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Roboto Slab Font [ OPTIONAL ] -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400"
+          rel="stylesheet">
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="../../static/adminResources/css/bootstrap.min.css" rel="stylesheet">
+    <!--Jasmine Stylesheet [ REQUIRED ]-->
+    <link href="../../static/adminResources/css/style.css" rel="stylesheet">
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="../../static/adminResources/css/font-awesome.min.css" rel="stylesheet">
+    <!--Switchery [ OPTIONAL ]-->
+    <link href="../../static/adminResources/css/switchery.min.css" rel="stylesheet">
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <link href="../../static/adminResources/css/bootstrap-select.min.css" rel="stylesheet">
+    <!--Bootstrap Validator [ OPTIONAL ]-->
+    <link href="../../static/adminResources/css/bootstrapValidator.min.css" rel="stylesheet">
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="../../static/adminResources/css/jasmine.css" rel="stylesheet">
+    <!--SCRIPT-->
+    <!--=================================================-->
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="../../static/adminResources/css/pace.min.css" rel="stylesheet">
+    <script src="../../static/adminResources/js/pace.min.js"></script>
+</head>
+<body>
+<div id="container" class="effect mainnav-lg navbar-fixed mainnav-fixed">
+    <!--NAVBAR-->
+    <!--===================================================-->
+
+
+    {% include 'bloodbank/header.html' %}
+
+
+    <!--===================================================-->
+    <!--END NAVBAR-->
+    <div class="boxed">
+        <!--CONTENT CONTAINER-->
+        <!--===================================================-->
+        <div id="content-container">
+            <!--Page Title-->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <div class="pageheader hidden-xs">
+                <h3><i class="fa fa-comments"></i>Manage Complain</h3>
+                <div class="breadcrumb-wrapper">
+                    <span class="label">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li><a href="/bloodbank/loadDashboard">Home</a></li>
+                        <li class="active">Manage Complain</li>
+                        <li class="active">Add Complain</li>
+                    </ol>
+                </div>
+            </div>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!--End page title-->
+            <!--Page content-->
+            <!--===================================================-->
+            <div id="page-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel">
+                            <!-- Panel heading -->
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Add Complain</h3>
+                            </div>
+                            <!-- Panel body -->
+                            <form id="registrationForm" class="form-horizontal" enctype="multipart/form-data"
+                                  action="/bloodbank/insertComplain" method="post">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label">Complain Subject</label>
+                                        <div class="col-xs-5">
+                                            <input type="text" class="form-control" name="complainSubject" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label">Complain Description</label>
+                                        <div class="col-xs-5">
+                                            <textarea rows="7" cols="45" class="form-control"
+                                                      name="complainDescription" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label">Complain Attachment</label>
+                                        <div class="col-xs-5">
+                                            <input type="file" class="form-control" name="file" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="form-group">
+                                        <div class="col-xs-9 col-xs-offset-3">
+                                            <button type="submit" class="btn btn-info btn-lg" name="signup"
+                                                    value="Sign up">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--===================================================-->
+            <!--End page content-->
+        </div>
+        <!--===================================================-->
+        <!--END CONTENT CONTAINER-->
+        <!--MAIN NAVIGATION-->
+        <!--===================================================-->
+        <nav id="mainnav-container">
+            <!--Brand logo & name-->
+            <!--================================-->
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">
+                    <i class="fa fa-heartbeat brand-icon"></i>
+                    <div class="brand-title">
+                        <span class="brand-text">LifeQuest</span>
+                    </div>
+                </a>
+            </div>
+            <!--================================-->
+            <!--End brand logo & name-->
+            <div id="mainnav">
+                <!--Menu-->
+                <!--================================-->
+
+
+                {% include 'bloodbank/menu.html' %}
+
+
+                <!--================================-->
+                <!--End menu-->
+            </div>
+        </nav>
+        <!--===================================================-->
+        <!--END MAIN NAVIGATION-->
+    </div>
+    <!-- FOOTER -->
+    <!--===================================================-->
+
+
+    {% include "bloodbank/footer.html" %}
+
+
+    <!--===================================================-->
+    <!-- END FOOTER -->
+    <!-- SCROLL TOP BUTTON -->
+    <!--===================================================-->
+    <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+    <!--===================================================-->
+</div>
+<!--===================================================-->
+<!-- END OF CONTAINER -->
+<!--JAVASCRIPT-->
+<!--=================================================-->
+<!--jQuery [ REQUIRED ]-->
+<script src="../../static/adminResources/js/jquery-2.1.1.min.js"></script>
+<!--BootstrapJS [ RECOMMENDED ]-->
+<script src="../../static/adminResources/js/bootstrap.min.js"></script>
+<!--Fast Click [ OPTIONAL ]-->
+<script src="../../static/adminResources/js/fastclick.min.js"></script>
+<!--Jasmine Admin [ RECOMMENDED ]-->
+<script src="../../static/adminResources/js/scripts.js"></script>
+<!--Jquery Nano Scroller js [ REQUIRED ]-->
+<script src="../../static/adminResources/js/jquery.nanoscroller.min.js"></script>
+<!--Metismenu js [ REQUIRED ]-->
+<script src="../../static/adminResources/js/metismenu.min.js"></script>
+<!--Switchery [ OPTIONAL ]-->
+<script src="../../static/adminResources/js/switchery.min.js"></script>
+<!--Bootstrap Select [ OPTIONAL ]-->
+<script src="../../static/adminResources/js/bootstrap-select.min.js"></script>
+<!--Bootstrap Validator [ OPTIONAL ]-->
+<script src="../../static/adminResources/js/bootstrapValidator.min.js"></script>
+<!--Fullscreen jQuery [ OPTIONAL ]-->
+<script src="../../static/adminResources/js/screenfull.js"></script>
+<!--Form validation [ SAMPLE ]-->
+<script src="../../static/adminResources/js/form-validation.js"></script>
+</body>
+</html>

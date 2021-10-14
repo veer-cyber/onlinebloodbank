@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moristan - Hospital & Clinic HTML Template</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+
+</head>
+<body>
+
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+<!--Search Popup Start Here-->
+<div class="searchOverlay">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo" height="60" width="60">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <form>
+                <div class="Search-section">
+                    <input type="text" placeholder="What can we help you with?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Search Popup End Here-->
+
+<!--Search Popup Start Here-->
+{% include "user/sideNavigation.html" %}
+<!--Search Popup End Here-->
+
+<!--Header Start Here-->
+{% include "user/header.html" %}
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+
+    <!--Breadcrumb Section Start Here-->
+    <section class="breadcrumb-area padding-90"
+             style="background-image: url(../../static/userResources/images/bg/breadcrumb-bg.png)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="breadcrumb-content">
+                    <div class="col-12 px-0">
+                        <div class="page-title">
+                            <h1 class="heading-1">View Complain Reply</h1>
+                        </div>
+                    </div>
+                    <ul class="page-list">
+                        <li><a href="/user/loadDashboard">Home</a></li>
+                        <li>View Complain</li>
+                        <li>View Complain Reply</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Breadcrumb Section End Here-->
+
+
+    <!--Blog Page Content-->
+    <div class="blog-page-content padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-details-wrap">
+                        <div class="blog-details-items">
+
+
+
+                            <div class="comment-area">
+                                <h4 class="comments-title padding-bottom-25">Complain</h4>
+                                {% for row in complainVOList %}
+                                    <ul class="comment-list">
+                                        <li>
+                                            <!-- single comment wrap -->
+                                            <div class="single-comment-wrap">
+                                                <div class="thumb">
+                                                    <img src="../../static/userResources/images/blog-details/avatar-01.png"
+                                                         alt="comment images" height="60" width="60">
+                                                </div>
+
+
+                                                <div class="content">
+                                                    <div class="title-area">
+                                                        <h6 class="title">{{ row['replySubject'] }}</h6>
+                                                    </div>
+                                                    <p>{{ row['replyMessage'] }}<a href="{{ row['replyFilePath'] }}{{ row['replyFileName'] }}"
+                                                           target="_blank"> <i class="icon fa fa-paperclip"></i></a></p>
+                                                </div>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="widgets-area">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+{% include "user/footer.html" %}
+
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/js/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/js/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/js/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!--Google Map API-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyNXoXHkqAwBKJaouZWhHPCP5vg7N0HQ&callback=initMap" async defer></script> -->
+<!-- google map activate js -->
+<script src="../../static/userResources/js/goolg-map-activate.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+
+</body>
+</html>

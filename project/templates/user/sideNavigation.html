@@ -1,0 +1,34 @@
+<div class="sidenav">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <div class="overlay-menu">
+                <ul class="side-menu">
+                    <li class="items" style="color: red"><b>{{ session['session_loginUsername'] }}</b></li>
+                    <li class="items"><a class="itme-nav" href="/user/loadDashboard">Home</a></li>
+                    <li class="items"><a class="itme-nav" href="/user/editProfile">Edit Profile</a></li>
+                    <li class="items"><a class="itme-nav" href="/admin/resetUserPassword">Reset Password</a></li>
+                    <li class="items"><a class="itme-nav" href="/admin/logoutSession">Logout</a></li>
+                    {#                    <li class="items"><a class="itme-nav" href="#">Help Center</a></li>#}
+                </ul>
+                <!--<div class="social-icon">
+                    <a class="icon" href="https://www.facebook.com/codingeek.net/" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="icon" href="https://www.instagram.com/codingeeknet" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="icon" href="https://twitter.com/codingeeknet" target="_blank"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="icon" href="https://www.linkedin.com/company/codingeek/about" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moristan - Hospital & Clinic HTML Template</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+
+    <style>
+        .redi {
+            width: 15%;
+            height: calc(0.5em + 0.75rem + 2px);
+            margin: 15px 0px 0px 10px;
+            font-size: 3px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function loadAreaUser() {
+
+            var user_CityId = document.getElementById("user_CityId")
+
+            var user_AreaId = document.getElementById("user_AreaId")
+
+            user_AreaId.innerHTML = ""
+
+            var ajax = new XMLHttpRequest()
+
+            ajax.onreadystatechange = function () {
+
+                if (ajax.readyState == 4) {
+
+                    var json = JSON.parse(ajax.responseText)
+
+                    for (var i = 0; i < json.length; i++) {
+
+                        var option = document.createElement("option")
+
+                        option.value = json[i].areaId;
+                        option.text = json[i].areaName;
+
+                        user_AreaId.options.add(option)
+                    }
+                }
+            }
+            ajax.open("get", "/user/ajaxAreaUser?user_CityId=" + user_CityId.value, true)
+
+            ajax.send()
+        }
+
+    </script>
+
+
+</head>
+<body>
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+<!--Search Popup Start Here-->
+<div class="searchOverlay">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <form>
+                <div class="Search-section">
+                    <input type="text" placeholder="What can we help you with?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Search Popup End Here-->
+
+<!--Side Nav Popup Start Here-->
+
+
+<!--Side Nav Popup End Here-->
+
+<!--Header Start Here-->
+{#{% include "user/header.html" %}#}
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+    <section class="login-section padding-top-5 padding-bottom-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="login-form-wrap"
+                     style="background-image: url(../../static/userResources/images/login/login-01.png)">
+                    <div class="login-form-area login-form-style-02">
+                        <div class="login-form">
+
+                            <div class="common-title">
+                                <h2 class="heading line-left">EDIT PROFILE</h2>
+                                <p>Back to <a href="/user/loadDashboard">Home</a></p>
+                            </div>
+
+                            <form action="/user/updateUserProfile" method="post">
+                                <div class="row">
+                                {% for row in userVOList %}
+                                    {% for row4 in userVOAllList %}
+                                    <input type="hidden" name="userId" value="{{ row4['userId'] }}">
+                                    <div class="col-lg-6 col-md-12">
+                                        <input type="text" class="form-control" placeholder="First Name"
+                                               name="userFirstName" value="{{ row4['userFirstName'] }}" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <input type="text" class="form-control" placeholder="Last Name"
+                                               name="userLastName" value="{{ row4['userLastName'] }}" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <input type="text" class="form-control" placeholder="User Name"
+                                               name="loginUsername" value="{{ row['loginUsername'] }}" readonly>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <select class="form-control" name="user_BloodGroupId" required>
+                                            <option value="">Select Blood Group</option>
+                                            {% for row1 in bloodGroupVOList %}
+                                                <option value="{{ row1['bloodGroupId'] }}">{{ row1['bloodGroupName'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="calendar-icon margin-15">
+                                                <span class="calendar">
+                                                    <label for="datepicker2">
+                                                        <input type="text" id="datepicker2" class="form-control"
+                                                               autocomplete="off" placeholder="Date of Birth"
+                                                               name="userBirthDate" value="{{ row4['userBirthDate'] }}" required>
+                                                    </label>
+                                                    </span>
+                                            <span class="icon"><i class="fas fa-calendar-week"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <input type="radio" class="redi" name="userGender" value="male"> Male
+                                        <input type="radio" class="redi" name="userGender" value="female"> Female
+
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <input type="text" class="form-control" placeholder="Weight" name="userWeight" value="{{ row4['userWeight'] }}" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <input type="text" class="form-control" placeholder="Height" name="userHeight" value="{{ row4['userHeight'] }}" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <input type="text" class="form-control" placeholder="Contact"
+                                               name="userContact"  value="{{ row4['userContact'] }}" required>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <select class="form-control" name="user_CityId" id="user_CityId"
+                                                onchange="loadAreaUser()" required>
+                                            <option selected value="">Select City</option>
+                                            {% for row2 in cityVOList %}
+                                                <option value="{{ row2['cityId'] }}">{{ row2['cityName'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <textarea name="userAddress" class="form-control" placeholder="User Address"
+                                                  rows="7" required>{{ row4['userAddress'] }}</textarea>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <select class="form-control" name="user_AreaId" id="user_AreaId" required>
+                                            <option value="">Select Area</option>
+                                        </select>
+                                        <textarea name="userDiseases" class="form-control"
+                                                  placeholder="Any Diseases(Specify)" rows="4">{{ row4['userDiseases'] }}</textarea>
+                                    </div>
+                                    <!--<div class="col-lg-6 col-md-12">
+                                        <input class="checkbox"  type="checkbox"  id="checkbox-1" name="checkbox-1"/>
+                                        <label for="checkbox-1">Yes, I want to receive Fortis’s emails</label>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <input class="checkbox"  type="checkbox"  id="checkbox-2" name="checkbox-2"/>
+                                        <label for="checkbox-2">Yes, I agree to the <a href="#">Terms, Privacy Policy and Fees</a>.</label>
+                                    </div>-->
+                                    <div class="form-btn col-12">
+                                        <input type="submit" value="Edit">
+                                    </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- footer area start -->
+{#{% include "user/footer.html" %}#}
+<!-- footer area end -->
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+<!-- back to top area end -->
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/js/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/js/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/js/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!--Google Map API-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyNXoXHkqAwBKJaouZWhHPCP5vg7N0HQ&callback=initMap" async defer></script> -->
+<!-- google map activate js -->
+<script src="../../static/userResources/js/goolg-map-activate.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+
+</body>
+</html>

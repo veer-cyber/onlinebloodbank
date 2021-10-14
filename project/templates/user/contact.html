@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moristan - Hospital & Clinic HTML Template</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+</head>
+<body>
+
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+<!--Search Popup Start Here-->
+<div class="searchOverlay">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <form>
+                <div class="Search-section">
+                    <input type="text" placeholder="What can we help you with?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Search Popup End Here-->
+
+<!--Search Popup Start Here-->
+{% include "user/sideNavigation.html" %}
+<!--Search Popup End Here-->
+
+<!--Header Start Here-->
+{% include "user/header.html" %}
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+
+
+    <!--Breadcrumb Section Start Here-->
+    <section class="breadcrumb-area padding-90"
+             style="background-image: url(../../static/userResources/images/bg/breadcrumb-bg.png)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="breadcrumb-content">
+                    <div class="col-12 px-0">
+                        <div class="page-title">
+                            <h1 class="heading-1">Get In Touch</h1>
+                        </div>
+                    </div>
+                    <ul class="page-list">
+                        <li><a href="/user/loadDashboard">Home</a></li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Breadcrumb Section End Here-->
+
+
+    <!--Contact Section Start Here-->
+    <section class="contact-section padding-100"
+             style="background-image:url(../../static/userResources/images/contact/cable-call-communication.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 offset-lg-5 offset-md-5">
+                    <div class="form-area">
+                        <div class="form-top">
+                            <div class="common-title">
+                                <h2 class="heading line-left">Contact us</h2>
+                            </div>
+                            <ul>
+                                <li><span>Email</span>onlinebloodbank2020@gmail.com</li>
+                                <li><span>Phone</span>+91 1234567890</li>
+                                <li><span>Address</span>Silicon valley</li>
+                            </ul>
+                        </div>
+                        <div class="form-bottom padding-top-30">
+                            <div class="common-title">
+                                <h2 class="heading line-left">Message us</h2>
+                            </div>
+                            <div class="form">
+                                <form action="#">
+                                    <div class="form-group">
+                                        <label for="Email">Email</label>
+                                        <input type="email" class="form-control" id="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Message">Message</label>
+                                        <textarea class="form-control" rows="4" id="Message"></textarea>
+                                    </div>
+                                    <div class="main-btn-wrap margin-top-40">
+                                        <input class="main-btn" type="submit" value="Send Message">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Contact Section End Here-->
+
+
+</main>
+
+<!-- footer area start -->
+{% include "user/footer.html" %}
+<!-- footer area end -->
+
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+<!-- back to top area end -->
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/js/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/js/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/js/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!--Google Map API-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyNXoXHkqAwBKJaouZWhHPCP5vg7N0HQ&callback=initMap" async defer></script> -->
+<!-- google map activate js -->
+<script src="../../static/userResources/js/goolg-map-activate.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+
+</body>
+</html>

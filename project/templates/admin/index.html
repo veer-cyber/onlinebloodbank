@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeQuest</title>
+    <link rel="shortcut icon" href="../../static/adminResources/images/favicon.ico">
+    <!--=================================================-->
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400"
+          rel="stylesheet">
+    <link href="../../static/adminResources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/style.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/switchery.min.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/jquery-jvectormap.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/morris.min.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/jquery-steps.min.css" rel="stylesheet">
+    <link href="../../static/adminResources/css/jasmine.css" rel="stylesheet">
+    <!--=================================================-->
+    <link href="../../static/adminResources/css/pace.min.css" rel="stylesheet">
+    <script src="../../static/adminResources/js/pace.min.js"></script>
+    <script src="../../static/adminResources/js/exporting.js"></script>
+    <script src="../../static/userResources/js/highcharts.js"></script>
+
+    <script type="text/javascript">
+
+        function loadGraph() {
+
+            var index_BloodbankId = document.getElementById("index_BloodbankId");
+
+            var ajax = new XMLHttpRequest();
+
+            ajax.onreadystatechange = function () {
+
+                if (ajax.readyState == 4) {
+
+                    var jsn = JSON.parse(ajax.responseText);
+
+                    if (jsn['responseKey'] != 'Error') {
+                        var xdata = [];
+                        var ydata = [];
+
+                        for (var key in jsn['responseKey']) {
+
+                            var key_value = jsn['responseKey'][key];
+
+                            xdata.push(key);
+                            ydata.push(key_value);
+
+                        }
+                        Highcharts.chart({
+                            chart: {
+                                renderTo: "graphnudiv",
+
+                                type: 'column'
+                            },
+                            title: {
+                                text: 'Source: Online Blood Bank'
+                            },
+                            xAxis: {
+                                categories: xdata,
+                                crosshair: true
+                            },
+                            yAxis: {
+                                min: 0,
+                                title: {
+                                    text: 'Count'
+                                }
+                            },
+                            plotOptions: {
+                                column: {
+                                    pointPadding: 0.2,
+                                    borderWidth: 0
+                                }
+                            },
+                            series: [{
+                                name: 'Appointment Type',
+                                data: ydata
+
+                            }]
+                        });
+                    }
+                }
+            };
+            ajax.open("get", "/admin/ajaxGetGraphData?index_BloodbankId=" + index_BloodbankId.value, true);
+
+            ajax.send()
+        }
+
+    </script>
+
+</head>
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+<div id="container" class="effect mainnav-lg navbar-fixed mainnav-fixed">
+    <!--NAVBAR-->
+    <!--===================================================-->
+
+
+    {% include 'admin/header.html' %}
+
+
+    <!--===================================================-->
+    <!--END NAVBAR-->
+    <div class="boxed">
+        <!--CONTENT CONTAINER-->
+        <!--===================================================-->
+        <div id="content-container">
+            <!--Page Title-->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <div class="pageheader hidden-xs">
+                <h3><i class="fa fa-home"></i>Admin Dashboard </h3>
+                <div class="breadcrumb-wrapper">
+                    <span class="label">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li><a href="/admin/loadDashboard"> Home </a></li>
+                        <li class="active">Admin Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+            <div id="page-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-body">
+
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="common-title sergery-heading padding-bottom-40">
+                                            <h2 class="heading">Appointment Type vs Count</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <select class="form-control" name="index_BloodbankId" id="index_BloodbankId"
+                                                onchange="loadGraph()" required>
+                                            <option value="">Select Blood Bank</option>
+                                            {% for i in bloodBankVOList %}
+                                                <option value="{{ i[0]['bloodBankId'] }}">{{ i[0]['bloodBankName'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <br>
+
+                                    <div id="graphnudiv" class="col-xs-12">
+                                        <div id="container"
+                                             style="min-width: 400px; height: 200px; margin: 0 auto"></div>
+                                        <input type="hidden" name="xvalue" value=""/>
+                                        <input type="hidden" name="yvalue" value=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav id="mainnav-container">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">
+                    <i class="fa fa-heartbeat brand-icon"></i>
+                    <div class="brand-title">
+                        <span class="brand-text">LifeQuest</span>
+                    </div>
+                </a>
+            </div>
+            <div id="mainnav">
+
+                {% include 'admin/menu.html' %}
+
+            </div>
+        </nav>
+    </div>
+
+    {% include "admin/footer.html" %}
+
+
+    <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+</div>
+<script src="../../static/adminResources/js/jquery-2.1.1.min.js"></script>
+<script src="../../static/adminResources/js/bootstrap.min.js"></script>
+<script src="../../static/adminResources/js/fastclick.min.js"></script>
+<script src="../../static/adminResources/js/jquery.nanoscroller.min.js"></script>
+<script src="../../static/adminResources/js/metismenu.min.js"></script>
+<script src="../../static/adminResources/js/switchery.min.js"></script>
+<script src="../../static/adminResources/js/parsley.min.js"></script>
+<script src="../../static/adminResources/js/jquery-steps.min.js"></script>
+<script src="../../static/adminResources/js/bootstrap-select.min.js"></script>
+<script src="../../static/adminResources/js/jquery.bootstrap.wizard.min.js"></script>
+<script src="../../static/adminResources/js/bootstrap-inputmask.min.js"></script>
+<script src="../../static/adminResources/js/bootstrapValidator.min.js"></script>
+<script src="../../static/adminResources/js/jquery.flot.min.js"></script>
+<script src="../../static/adminResources/js/jquery.flot.resize.min.js"></script>
+<script src="../../static/adminResources/js/jquery.flot.spline.js"></script>
+<script src="../../static/adminResources/js/moment.min.js"></script>
+<script src="../../static/adminResources/js/moment-range.js"></script>
+<script src="../../static/adminResources/js/jquery.flot.tooltip.min.js"></script>
+<script src="../../static/adminResources/js/jquery.flot.categories.js"></script>
+<script src="../../static/adminResources/js/jquery.dataTables.js"></script>
+<script src="../../static/adminResources/js/dataTables.bootstrap.js"></script>
+<script src="../../static/adminResources/js/dataTables.responsive.min.js"></script>
+<script src="../../static/adminResources/js/morris.min.js"></script>
+<script src="../../static/adminResources/js/raphael.min.js"></script>
+<script src="../../static/adminResources/js/jquery.easypiechart.min.js"></script>
+<script src="../../static/adminResources/js/screenfull.js"></script>
+<!--<script src="../../static/adminResources/js/index.js"></script>-->
+<script src="../../static/adminResources/js/wizard.js"></script>
+<script src="../../static/adminResources/js/form-wizard.js"></script>
+<script src="../../static/adminResources/js/tables-datatables.js"></script>
+<!--Jasmine Admin [ RECOMMENDED ]-->
+<script src="../../static/adminResources/js/scripts.js"></script>
+
+</body>
+
+</html>

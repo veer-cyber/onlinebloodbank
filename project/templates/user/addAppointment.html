@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moristan - Hospital & Clinic HTML Template</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Progress bar Css-->
+    <link rel="stylesheet" href="../../static/userResources/css/jquery.rprogessbar.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+
+    <link rel="stylesheet" href="../../static/userResources/css/jquery-ui.css">
+
+    <script src="../../static/userResources/js/jquery-3.4.1.js"></script>
+    <script src="../../static/userResources/js/jquery-ui-1.js"></script>
+
+
+</head>
+<body>
+
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+<!--Search Popup Start Here-->
+<div class="searchOverlay">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <form>
+                <div class="Search-section">
+                    <input type="text" placeholder="What can we help you with?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Search Popup End Here-->
+
+<!--Side Nav Popup Start Here-->
+{% include "user/sideNavigation.html" %}
+<!--Side Nav Popup End Here-->
+
+<!--Header Start Here-->
+{% include "user/header.html" %}
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+
+    <!--Breadcrumb Section Start Here-->
+    <section class="breadcrumb-area padding-90"
+             style="background-image: url(../../static/userResources/images/bg/breadcrumb-bg.png)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="breadcrumb-content">
+                    <div class="col-12 px-0">
+                        <div class="page-title">
+                            <h1 class="heading-1">Add Appointment</h1>
+                        </div>
+                    </div>
+                    <ul class="page-list">
+                        <li><a href="/user/loadDashboard">Home</a></li>
+                        <li>Manage Appointment</li>
+                        <li>Add Appoitmtment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Breadcrumb Section End Here-->
+    <!--Make Appoinment Section Start Here-->
+    <section class="appointment-section padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <!--Commen Title-->
+                    <div class="common-title padding-bottom-50">
+                        <h2 class="heading">Make an appointment</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 px-4">
+                    <div class="appointment-content">
+                        <div class="tab-content">
+                            <div class="appointment-img-area">
+                                <img src="../../static/userResources/images/appointment.jpg" alt="img">
+                                {#                                <div class="doctor-info">#}
+                                {#                                    <div class="name">#}
+                                {#                                        <h6 class="heading-06"> Dr George Abdreas Pompeia</h6>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="designation">#}
+                                {#                                        <span>Specialist cardiologue</span>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                            </div>
+                            <div class="appointment-form-area">
+                                <form action="/user/insertAppointment" method="post">
+                                    <div class="row">
+
+                                        <div class="col-lg-6 col-md-12 margin-15">
+                                            <select class="form-control" name="appointmentType" required>
+                                                <option selected disabled value="">Appointment Type</option>
+                                                <option>Donor</option>
+                                                <option>Receiver</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 margin-15">
+                                            <select class="form-control" name="appointment_BloodGroupId" required>
+                                                <option selected disabled value="">Select Blood group</option>
+                                                {% for i in bloodGroupVOList %}
+                                                    <option value="{{ i['bloodGroupId'] }}">{{ i['bloodGroupName'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 margin-15">
+                                            <select class="form-control" name="appointment_CityId"
+                                                    id="appointment_CityId"
+                                                    onchange="loadAreaAppointment()" required>
+                                                <option selected disabled value=""> Select City</option>
+                                                {% for row in cityVOList %}
+                                                    <option value="{{ row['cityId'] }}">{{ row['cityName'] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 margin-15">
+                                            <select class="form-control" name="appointment_AreaId"
+                                                    id="appointment_AreaId" onchange="loadBloodBankAppointment()"
+                                                    required>
+                                                <option selected disabled value="">Select Area</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 margin-15">
+                                            <select class="form-control" name="appointment_BloodBankId"
+                                                    id="appointment_BloodBankId" onchange="loadTimeSlotAppointment()"
+                                                    required>
+
+                                                <option selected disabled value="">Select Blood Bank</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 margin-15">
+                                            <select class="form-control" name="appointment_TimeSlotId"
+                                                    id="appointment_TimeSlotId" required>
+                                                <option selected disabled value="">Select Time Slot</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12 margin-15">
+                                                <span class="calendar">
+                                                    <label for="datepicker2">
+                                                        <input type="text" id="mycal" name="appointmentDate"
+                                                               class="form-control"
+                                                               autocomplete="off" placeholder="Date" required>
+                                                    </label>
+                                                    </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="main-btn-wrap style-02">
+                                        <input class="main-btn" type="submit" value="Make Appointment">
+                                    </div>
+                                </form>
+                            </div>
+                            <!--// Form End-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// Make Appoinment Section End Here-->
+</main>
+
+<!-- footer area start -->
+{% include "user/footer.html" %}
+<!-- footer area end -->
+
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+<!-- back to top area end -->
+
+<script>
+    $(function () {
+        $("#mycal").datepicker({
+            dateFormat: "dd/mm/yy",
+            minDate: 0
+        })
+    });
+</script>
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/js/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/js/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/js/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!--rProgress bar-->
+<script src="../../static/userResources/js/jQuery.rProgressbar.min.js"></script>
+<!--Google Map API-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyNXoXHkqAwBKJaouZWhHPCP5vg7N0HQ&callback=initMap" async defer></script> -->
+<!-- google map activate js -->
+<script src="../../static/userResources/js/goolg-map-activate.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+<script src="../../static/userResources/js/AjaxCall.js"></script>
+
+</body>
+</html>

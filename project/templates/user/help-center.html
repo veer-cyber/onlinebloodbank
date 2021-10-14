@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moristan - Hospital & Clinic HTML Template</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+
+</head>
+<body>
+
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+<!--Search Popup Start Here-->
+<div class="searchOverlay">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <form>
+                <div class="Search-section">
+                    <input type="text" placeholder="What can we help you with?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Search Popup End Here-->
+
+<!--Search Popup Start Here-->
+{% include "user/sideNavigation.html" %}
+<!--Search Popup End Here-->
+
+<!--Header Start Here-->
+{% include "user/header.html" %}
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+
+    <!--Breadcrumb Section Start Here-->
+    <section class="breadcrumb-area padding-90"
+             style="background-image: url(../../static/userResources/images/bg/breadcrumb-bg.png)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="breadcrumb-content">
+                    <div class="col-12 px-0">
+                        <div class="page-title">
+                            <h1 class="heading-1">Help Center</h1>
+                        </div>
+                    </div>
+                    <ul class="page-list">
+                        <li><a href="/user/loadDashboard">Home</a></li>
+                        <li>Help Center</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Breadcrumb Section End Here-->
+
+    <!--Help Section Start Here-->
+    <section class="help-section padding-top-100">
+        <div class="container-fluid pl-0">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="image-area">
+                        <img src="../../static/userResources/images/help-center/chair.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-lg-4 pl-0">
+                    <div class="content-area">
+                        <h4 class="heading-04 padding-bottom-10">Help center</h4>
+                        <div class="common-title">
+                            <h2 class="heading line-left">How can we help you?</h2>
+                        </div>
+                        <div class="padding-top-20 padding-bottom-30">
+                            <p>Dr Linda Freemanis of the Nurologiest in Bangladesh, In the world but the have suffered
+                                alteration in
+                                some injected humour.</p>
+                        </div>
+                        <form>
+                            <div class="search-btn">
+                                <input type="search" placeholder="What can we help you with?" class="form-control">
+                                <a href="#" class="search-icon">
+                                    <i class="flaticon-search-1"></i>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// Help Section End Here-->
+
+    <!--Accordion Section Start Here-->
+    <section class="accordion-section padding-top-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="common-title padding-bottom-35">
+                        <h2 class="heading line-left">General Questions</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="accordion-wrapper style-03">
+                        <div id="accordionOne">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-target="#collapseOne"
+                                           aria-expanded="true" aria-controls="collapseOne">
+                                            What are the signs and symptoms of strep throat?
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                     data-parent="#accordionOne">
+                                    <div class="card-body">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson et.
+                                            Your childs primary and permanent treatment is important to help your child
+                                            establish good oral.
+                                            There was some preliminary evidence that treatments by specialist staff
+                                            working in primary.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                           data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            What are the signs and symptoms of strep throat?
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordionOne">
+                                    <div class="card-body">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson et.
+                                            Your childs primary and permanent treatment is important to help your child
+                                            establish good oral.
+                                            There was some preliminary evidence that treatments by specialist staff
+                                            working in primary.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                           data-target="#collapseThree" aria-expanded="false"
+                                           aria-controls="collapseThree">
+                                            What are the signs and symptoms of strep throat?
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                     data-parent="#accordionOne">
+                                    <div class="card-body">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson et.
+                                            Your childs primary and permanent treatment is important to help your child
+                                            establish good oral.
+                                            There was some preliminary evidence that treatments by specialist staff
+                                            working in primary.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="accordion-wrapper style-03">
+                        <div id="accordionTwo">
+                            <div class="card">
+                                <div class="card-header" id="headingTowOne">
+                                    <h5 class="mb-0">
+                                        <a role="button" data-toggle="collapse" data-target="#collapseTowOne"
+                                           aria-expanded="true" aria-controls="collapseTowOne">
+                                            What are the signs and symptoms of strep throat?
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTowOne" class="collapse show" aria-labelledby="headingTowOne"
+                                     data-parent="#accordionTwo">
+                                    <div class="card-body">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson et.
+                                            Your childs primary and permanent treatment is important to help your child
+                                            establish good oral.
+                                            There was some preliminary evidence that treatments by specialist staff
+                                            working in primary.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTowTwo">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                           data-target="#collapseTowTwo" aria-expanded="false"
+                                           aria-controls="collapseTowTwo">
+                                            What are the signs and symptoms of strep throat?
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTowTwo" class="collapse" aria-labelledby="headingTowTwo"
+                                     data-parent="#accordionTwo">
+                                    <div class="card-body">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson et.
+                                            Your childs primary and permanent treatment is important to help your child
+                                            establish good oral.
+                                            There was some preliminary evidence that treatments by specialist staff
+                                            working in primary.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwoThree">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                           data-target="#collapseTowThree" aria-expanded="false"
+                                           aria-controls="collapseTowThree">
+                                            What are the signs and symptoms of strep throat?
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapseTowThree" class="collapse" aria-labelledby="headingTwoThree"
+                                     data-parent="#accordionTwo">
+                                    <div class="card-body">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson et.
+                                            Your childs primary and permanent treatment is important to help your child
+                                            establish good oral.
+                                            There was some preliminary evidence that treatments by specialist staff
+                                            working in primary.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// Accordion Section End Here-->
+
+    <!--Another Question Section Start Here-->
+    <section class="another-question-section padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="question-form form-bottom">
+                        <div class="common-title padding-bottom-30">
+                            <h2 class="heading line-left">Leave it here.</h2>
+                        </div>
+                        <div class="form">
+                            <form>
+                                <div class="form-group">
+                                    <label for="Email">Email</label>
+                                    <input type="email" class="form-control" id="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Message">Message</label>
+                                    <textarea class="form-control" rows="4" id="Message"></textarea>
+                                </div>
+                                <div class="main-btn-wrap padding-top-25">
+                                    <input class="main-btn" type="submit" value="Send Message">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="question-img">
+                        <img src="../../static/userResources/images/help-center/question-img.png" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// Another Question Section End Here-->
+
+
+</main>
+
+<!-- footer area start -->
+{% include "user/footer.html" %}
+<!-- footer area end -->
+
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+<!-- back to top area end -->
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/css/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/css/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/css/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moristan - Hospital & Clinic HTML Template</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+
+</head>
+<body>
+
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+<!--Search Popup Start Here-->
+<div class="searchOverlay">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <form>
+                <div class="Search-section">
+                    <input type="text" placeholder="What can we help you with?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Search Popup End Here-->
+
+<!--Search Popup Start Here-->
+{% include "user/sideNavigation.html" %}
+<!--Search Popup End Here-->
+
+<!--Header Start Here-->
+{% include "user/header.html" %}
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+
+
+    <!--Breadcrumb Section Start Here-->
+    <section class="breadcrumb-area padding-90"
+             style="background-image: url(../../static/userResources/images/bg/breadcrumb-bg.png)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="breadcrumb-content">
+                    <div class="col-12 px-0">
+                        <div class="page-title">
+                            <h1 class="heading-1">Membership</h1>
+                        </div>
+                    </div>
+                    <ul class="page-list">
+                        <li><a href="/user/loadDashboard">Home</a></li>
+                        <li>Membership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Breadcrumb Section End Here-->
+
+
+    <!--Membership Filter Section Start Here-->
+    <section class="membership-filter-section padding-top-80 padding-bottom-100">
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-lg-12 px-0">
+                    <!-- Filter Button Section Start-->
+                    <div class="horizontal-scroll padding-bottom-50">
+                        <ul class="button-group filters-button-group">
+                            <li class="button is-checked" data-filter=".standard">Standard</li>
+                            <li class="button" data-filter=".silver">Silver</li>
+                            <li class="button" data-filter=".premium">Premium</li>
+                        </ul>
+                    </div>
+                    <!--// Filter Button Section End-->
+
+                    <!--Membership Filter Content Start-->
+                    <div class="membership-filter">
+                        <!--Grigd Item-->
+                        <div class="membership-grid standard">
+                            <div class="membership-image-section">
+                                <img src="../../static/userResources/images/membership/membership.png" alt="img">
+                                <div class="membership-heading">
+                                    <h2 class="heading line-left">Standard</h2>
+                                </div>
+                            </div>
+                            <!--// Membership Image Section End-->
+
+                            <!--// Package Section End Here-->
+                            <div class="quality-section padding-top-100">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <!--Commen Title-->
+                                            <div class="common-title">
+                                                <h3 class="heading line-left">Quality standards</h3>
+                                            </div>
+                                            <div class="content-area">
+                                                <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit
+                                                    varius mi. Cum sociis natoque penatibus et magnis.</p>
+                                            </div>
+                                            <div class="check-box-area">
+                                                <ul class="check-box">
+                                                    <li>Contact Office-Based Physicians</li>
+                                                    <li>Target Pharmacists and Pharmacies</li>
+                                                    <li>Reach Hospital Decision Makers</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <!--Commen Title-->
+                                            <div class="common-title">
+                                                <h3 class="heading line-left">Reach Hospital Decision Makers</h3>
+                                            </div>
+                                            <div class="content-area">
+                                                <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit
+                                                    varius mi. Cum sociis natoque penatibus et magnis.</p>
+                                            </div>
+                                            <div class="check-box-area">
+                                                <ul class="check-box">
+                                                    <li>Contact Office-Based Physicians</li>
+                                                    <li>Target Pharmacists and Pharmacies</li>
+                                                    <li>Reach Hospital Decision Makers</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Quality Section End Here-->
+
+                            <!--Accounting Section Start Here-->
+                            <div class="accounting-section padding-top-70">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-bottom">
+                                                <div class="common-title padding-bottom-40">
+                                                    <h3 class="heading line-left">Account Information</h3>
+                                                    <p>Already have an account? <a href="#">Log In</a></p>
+                                                </div>
+                                                <div class="form">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                   placeholder="Your Name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control"
+                                                                   placeholder="Password">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control"
+                                                                   placeholder="Confirm Password">
+                                                        </div>
+                                                        <div class="main-btn-wrap">
+                                                            <input class="main-btn" type="submit" value="Checkout">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 offset-lg-2">
+                                            <div class="package-section quality-section">
+                                                <div class="common-title">
+                                                    <h3 class="heading line-left">Standard Package</h3>
+                                                </div>
+                                                <div class="service-items">
+                                                    <ul>
+                                                        <li>The price for membership is $150.</li>
+                                                        <li>Membership expires after 30 days.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// Accountion Section End Here-->
+                        </div>
+                        <!--// Grid Item End-->
+
+                        <div class="membership-grid silver">
+                            <div class="membership-image-section">
+                                <img src="../../static/userResources/images/membership/silver.png" alt="img">
+                                <div class="membership-heading">
+                                    <h2 class="heading">Silver</h2>
+                                </div>
+                            </div>
+                            <!--// Silver Image Section End-->
+
+                            <!--// Package Section End Here-->
+                            <div class="quality-section padding-top-100">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <!--Commen Title-->
+                                            <div class="common-title">
+                                                <h3 class="heading line-left">Quality standards</h3>
+                                            </div>
+                                            <div class="content-area">
+                                                <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit
+                                                    varius mi. Cum sociis natoque penatibus et magnis.</p>
+                                            </div>
+                                            <div class="check-box-area">
+                                                <ul class="check-box">
+                                                    <li>Contact Office-Based Physicians</li>
+                                                    <li>Target Pharmacists and Pharmacies</li>
+                                                    <li>Reach Hospital Decision Makers</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <!--Commen Title-->
+                                            <div class="common-title">
+                                                <h3 class="heading line-left">Reach Hospital Decision Makers</h3>
+                                            </div>
+                                            <div class="content-area">
+                                                <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit
+                                                    varius mi. Cum sociis natoque penatibus et magnis.</p>
+                                            </div>
+                                            <div class="check-box-area">
+                                                <ul class="check-box">
+                                                    <li>Contact Office-Based Physicians</li>
+                                                    <li>Target Pharmacists and Pharmacies</li>
+                                                    <li>Reach Hospital Decision Makers</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Quality Section End Here-->
+
+                            <!--Accounting Section Start Here-->
+                            <div class="accounting-section padding-top-70">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-bottom">
+                                                <div class="common-title padding-bottom-40">
+                                                    <h3 class="heading line-left">Account Information</h3>
+                                                    <p>Already have an account? <a href="#">Log In</a></p>
+                                                </div>
+                                                <div class="form">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                   placeholder="Your Name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control"
+                                                                   placeholder="Password">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control"
+                                                                   placeholder="Confirm Password">
+                                                        </div>
+                                                        <div class="main-btn-wrap">
+                                                            <input class="main-btn" type="submit" value="Checkout">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 offset-lg-2">
+                                            <div class="package-section quality-section">
+                                                <div class="common-title">
+                                                    <h3 class="heading line-left">Standard Package</h3>
+                                                </div>
+                                                <div class="service-items">
+                                                    <ul>
+                                                        <li>The price for membership is $150.</li>
+                                                        <li>Membership expires after 30 days.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// Accountion Section End Here-->
+                        </div>
+                        <!--// Grid Item End-->
+                        <div class="membership-grid premium">
+                            <div class="membership-image-section">
+                                <img src="../../static/userResources/images/membership/standard.png" alt="img">
+                                <div class="membership-heading">
+                                    <h2 class="heading">Premium</h2>
+                                </div>
+                            </div>
+
+                            <!--// Package Section End Here-->
+                            <div class="quality-section padding-top-100">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <!--Commen Title-->
+                                            <div class="common-title">
+                                                <h3 class="heading line-left">Quality standards</h3>
+                                            </div>
+                                            <div class="content-area">
+                                                <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit
+                                                    varius mi. Cum sociis natoque penatibus et magnis.</p>
+                                            </div>
+                                            <div class="check-box-area">
+                                                <ul class="check-box">
+                                                    <li>Contact Office-Based Physicians</li>
+                                                    <li>Target Pharmacists and Pharmacies</li>
+                                                    <li>Reach Hospital Decision Makers</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <!--Commen Title-->
+                                            <div class="common-title">
+                                                <h3 class="heading line-left">Reach Hospital Decision Makers</h3>
+                                            </div>
+                                            <div class="content-area">
+                                                <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit
+                                                    varius mi. Cum sociis natoque penatibus et magnis.</p>
+                                            </div>
+                                            <div class="check-box-area">
+                                                <ul class="check-box">
+                                                    <li>Contact Office-Based Physicians</li>
+                                                    <li>Target Pharmacists and Pharmacies</li>
+                                                    <li>Reach Hospital Decision Makers</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Quality Section End Here-->
+
+                            <!--Accounting Section Start Here-->
+                            <div class="accounting-section padding-top-70">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-bottom">
+                                                <div class="common-title padding-bottom-40">
+                                                    <h3 class="heading line-left">Account Information</h3>
+                                                    <p>Already have an account? <a href="#">Log In</a></p>
+                                                </div>
+                                                <div class="form">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                   placeholder="Your Name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control"
+                                                                   placeholder="Password">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control"
+                                                                   placeholder="Confirm Password">
+                                                        </div>
+                                                        <div class="main-btn-wrap">
+                                                            <input class="main-btn" type="submit" value="Checkout">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 offset-lg-2">
+                                            <div class="package-section quality-section">
+                                                <div class="common-title">
+                                                    <h3 class="heading line-left">Standard Package</h3>
+                                                </div>
+                                                <div class="service-items">
+                                                    <ul>
+                                                        <li>The price for membership is $150.</li>
+                                                        <li>Membership expires after 30 days.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--// Accountion Section End Here-->
+
+                        </div>
+                        <!--// Grid Item End-->
+                    </div>
+                    <!--// Blog Filter Content End-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--// Membership Filter Section End Here-->
+
+
+</main>
+
+<!-- footer area start -->
+{% include "user/footer.html" %}
+<!-- footer area end -->
+
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+<!-- back to top area end -->
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/js/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/js/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/js/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!--Google Map API-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyNXoXHkqAwBKJaouZWhHPCP5vg7N0HQ&callback=initMap" async defer></script> -->
+<!-- google map activate js -->
+<script src="../../static/userResources/js/goolg-map-activate.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+
+</body>
+</html>

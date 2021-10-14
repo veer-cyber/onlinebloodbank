@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Take a Picture for the Face Recognition</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+
+</head>
+<body>
+
+<!--Header Start Here-->
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+
+    <section class="login-section padding-top-5 padding-bottom-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="login-form-wrap"
+                     style="background-image: url(../../static/userResources/images/login/login-01.png)">
+                    <div class="login-form-area">
+                        <div class="login-form login">
+
+                            <center>
+                                <b><span>Take a Picture for the Face Recognition</span></b>
+                                <div id="my_camera"></div>
+                                    <i class="fa fa-camera-retro fa-5x" onclick="snap()" style="margin-top: 3px;margin-bottom: 3px"></i>
+                                <div id="results"></div>
+                                <form method="POST" enctype="multipart/form-data" id="myForm">
+                                        <input type="hidden" name="loginUsername" value="{{ loginUsername }}">
+                                        <i class="fa fa-upload fa-5x" onclick="upload()" style="margin-top: 10px"></i>
+{#                                        <input type="button" value="Upload" onclick="upload()">#}
+                                </form>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- footer area start -->
+<!-- footer area end -->
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+<!-- back to top area end -->
+
+
+<script src="../../static/adminResources/js/webcam.min.js"></script>
+<script>
+    function ShowCam() {
+            Webcam.set({
+                width: 320,
+                height: 240,
+                image_format: 'jpeg',
+                jpeg_quality: 100
+            });
+            Webcam.attach('#my_camera');
+        }
+        window.onload= ShowCam;
+
+        function snap() {
+            Webcam.snap( function(data_uri) {
+                // display results in page
+                document.getElementById('results').innerHTML =
+                '<img id="image" src="'+data_uri+'"/>';
+              } );
+        }
+
+        function upload() {
+            console.log("Uploading...")
+            var image = document.getElementById('image').src;
+            var form = document.getElementById('myForm');
+            var formData = new FormData(form);
+            formData.append("file", image);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "/admin/file");
+
+            // check when state changes,
+            xmlhttp.onreadystatechange = function() {
+
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                window.location="/";
+                }
+            }
+
+            xmlhttp.send(formData);
+{#            console.log(formData.get('file'));#}
+{#            console.log(formData.get('userID'));#}
+        }
+
+
+</script>
+
+
+
+
+
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/js/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/js/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/js/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!--Google Map API-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyNXoXHkqAwBKJaouZWhHPCP5vg7N0HQ&callback=initMap" async defer></script> -->
+<!-- google map activate js -->
+<script src="../../static/userResources/js/goolg-map-activate.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+
+</body>
+</html>

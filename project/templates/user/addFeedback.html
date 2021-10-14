@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moristan - Hospital & Clinic HTML Template</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.png" sizes="20x20" type="image/png">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="../../static/userResources/css/flaticon.css">
+    <!-- Fonts Awesome Icons -->
+    <link rel="stylesheet" href="../../static/userResources/css/fontawesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../../static/userResources/css/bootstrap.min.css">
+    <!-- animate -->
+    <link rel="stylesheet" href="../../static/userResources/css/animate.css">
+    <!--Video Popup-->
+    <link rel="stylesheet" href="../../static/userResources/css/rpopup.min.css">
+    <!--Slick Carousel-->
+    <link rel="stylesheet" href="../../static/userResources/css/slick.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="../../static/userResources/css/responsive.css">
+
+    <link rel="stylesheet" href="../../static/userResources/css/star.css">
+
+</head>
+<body>
+
+<!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+
+<!--Search Popup Start Here-->
+<div class="searchOverlay">
+    <div class="sidenav-wrap">
+        <div class="logo-area">
+            <div class="logo">
+                <a href="#">
+                    <img src="../../static/userResources/images/logo-2.png" alt="logo">
+                </a>
+            </div>
+        </div><!--Logo End-->
+        <div class="overlay-content">
+            <span class="closebtn" title="Close Overlay">×</span>
+            <form>
+                <div class="Search-section">
+                    <input type="text" placeholder="What can we help you with?" name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Search Popup End Here-->
+
+<!--Search Popup Start Here-->
+{% include "user/sideNavigation.html" %}
+<!--Search Popup End Here-->
+
+<!--Header Start Here-->
+{% include "user/header.html" %}
+<!--Header Area End Here-->
+
+<!--Main Area Start Here-->
+<main>
+
+    <!--Breadcrumb Section Start Here-->
+    <section class="breadcrumb-area padding-90"
+             style="background-image: url(../../static/userResources/images/bg/breadcrumb-bg.png)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="breadcrumb-content">
+                    <div class="col-12 px-0">
+                        <div class="page-title">
+                            <h1 class="heading-1">Post Feedback</h1>
+                        </div>
+                    </div>
+                    <ul class="page-list">
+                        <li><a href="/user/loadDashboard">Home</a></li>
+                        <li>Manage Feedback</li>
+                        <li>Post Feedback</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Breadcrumb Section End Here-->
+
+
+    <!--Blog Page Content-->
+    <div class="blog-page-content padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-details-wrap">
+                        <div class="comment-area">
+                            <div class="comment-form-wrap">
+                                <h4 class="reply-title">Post a feedback</h4>
+                                <div class="form-area">
+                                    <form action="/user/insertFeedback" method="post">
+
+                                        <div class="form-group">
+                                            <b><label class="col-xs-3 control-label">Feedback Ratings:</label></b>
+                                            <div class="rate">
+                                                <input type="radio" id="star5" name="feedbackRating" value="5"/><label
+                                                    for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="feedbackRating" value="4"/><label
+                                                    for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="feedbackRating" value="3"/><label
+                                                    for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="feedbackRating" value="2"/><label
+                                                    for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="feedbackRating" value="1"/><label
+                                                    for="star1" title="text">1 star</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <input type="text" name="feedbackSubject" placeholder="Feedback Subject"
+                                                   class="form-control" required>
+
+                                            <textarea name="feedbackDescription" class="form-control"
+                                                      placeholder="Feedback Description" rows="5" required></textarea>
+
+                                            <div class="main-btn-wrap padding-top-10">
+                                                <input class="main-btn  black" type="submit" value="Post Comment">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--// Form Area-->
+                            </div>
+                            <div class="comment-area" style="margin-top: 35px">
+                                <h4 class="comments-title padding-bottom-25">Feedbacks</h4>
+                                {% for row in feedbackVOList %}
+                                    <ul class="comment-list">
+                                        <li>
+                                            <!-- single comment wrap -->
+                                            <div class="single-comment-wrap">
+                                                <div class="thumb">
+                                                    <img src="../../static/userResources/images/blog-details/avatar-01.png"
+                                                         alt="comment images" height="60" width="60">
+                                                </div>
+
+
+                                                <div class="content">
+
+                                                    <div class="title-area">
+                                                        <h3 class="title" style="float: left;font-size: 20px">{{ row['feedbackSubject'] }}</h3>
+                                                        <span style="margin-left: 15px;font-size: 14px">{{ row['feedbackDate'] }}</span>
+                                                        {% for i in range(row.feedbackRating|int) %}
+                                                        <i class="fa fa-star" style="float: right; color: #dbdb00"></i>
+                                                    {% endfor %}
+                                                    </div>
+                                                    <p style="clear: left">{{ row['feedbackDescription'] }}<a href="/user/deleteFeedback?feedbackId={{ row['feedbackId'] }}">
+                                                            <i class="icon fa fa-trash"></i></a></p>
+                                                    <div class="reply">
+
+                                                    </div>
+                                                </div>
+
+                                            </div><!-- // single comment wrap -->
+
+
+                                        </li>
+
+
+                                    </ul>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <!--// Comment Area-->
+
+                    </div>
+                    <!--Blog Details Wrap-->
+
+                </div>
+
+                <div class="col-lg-4">
+                    <!--Widgets-->
+                    <!--<div class="widgets-area">
+                        <!--<div class="widget widget_search">
+                            <form action="blog.html" class="search-form">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                                <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <!--// Search Widget-->
+
+                    <!--<div class="widget widget_recent_posts">
+                        <h5 class="widget-title">Popular Post</h5>
+                        <ul class="recent_post_item">
+                            <li class="single-recent-post-item">
+                                <div class="content">
+                                    <span class="time"><i class="icon far fa-calendar-alt"></i>01 October 2019</span>
+                                    <h5 class="title"><a href="#">Below are the original latin passages from</a></h5>
+                                </div>
+                                <div class="thumb">
+                                    <img src="../../static/userResources/images/blog/05.png" alt="recent post">
+                                </div>
+                            </li>
+
+                            <li class="single-recent-post-item">
+                                <div class="content">
+                                    <span class="time"><i class="icon far fa-calendar-alt"></i>01 October 2019</span>
+                                    <h5 class="title"><a href="#">Below are the original latin passages from</a></h5>
+                                </div>
+                                <div class="thumb">
+                                    <img src="../../static/userResources/images/blog/06.png" alt="recent post">
+                                </div>
+                            </li>
+                            <li class="single-recent-post-item">
+                                <div class="content">
+                                    <span class="time"><i class="icon far fa-calendar-alt"></i>01 October 2019</span>
+                                    <h5 class="title"><a href="#">Below are the original latin passages from</a></h5>
+                                </div>
+                                <div class="thumb">
+                                    <img src="../../static/userResources/images/blog/07.png" alt="recent post">
+                                </div>
+                            </li>
+                            <li class="single-recent-post-item">
+                                <div class="content">
+                                    <span class="time"><i class="icon far fa-calendar-alt"></i>01 October 2019</span>
+                                    <h5 class="title"><a href="#">Below are the original latin passages from</a></h5>
+                                </div>
+                                <div class="thumb">
+                                    <img src="../../static/userResources/images/blog/08.png" alt="recent post">
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>-->
+                    <!--// Recent Post Widget-->
+
+                    <!--<div class="widget widget_category">
+                        <h5 class="widget-title">Blog Categories</h5>
+                        <ul>
+                            <li><a href="#">Technology <span class="right"> 06</span></a></li>
+                            <li><a href="#">Business <span class="right"> 10</span></a></li>
+                            <li><a href="#">Internet Security <span class="right"> 08</span></a></li>
+                            <li><a href="#">Trending Domain  <span class="right"> 09</span></a></li>
+                            <li><a href="#">Minimal <span class="right"> 15 </span></a></li>
+                        </ul>
+                    </div>-->
+                    <!--// Category Widget-->
+
+                    <!--<div class="widget widget_follow_us">
+                        <h5 class="widget-title">Following us</h5>
+                        <ul>
+                            <li><a class="social-icon" href="https://www.facebook.com/codingeek.net/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a class="social-icon" href="https://www.instagram.com/codingeeknet" target="_blank"><i class="fab fa-instagram"></i></a>    </li>
+                            <li><a class="social-icon" href="https://twitter.com/codingeeknet" target="_blank"><i class="fab fa-twitter"></i></a>   </li>
+                            <li><a class="social-icon" href="https://www.linkedin.com/company/codingeek/about" target="_blank"><i class="fab fa-linkedin-in"></i></a> </li>
+                        </ul>
+                    </div>-->
+                    <!--// Category Widget-->
+
+                    <!--<div class="widget widget_archive">
+                        <h5 class="widget-title">Archives</h5>
+                        <div class="calendar-icon">
+                            <label for="datepicker2">
+                                <input type="text" id="datepicker2" class="form-control" autocomplete="off" placeholder="29-01-2019">
+                            </label>
+                            <i class="caret-icon  fas fa-caret-down"></i>
+                        </div>
+                    </div>-->
+                    <!--// Archive Widget-->
+
+                    <!--<div class="widget widget_instagram">
+                        <h5 class="widget-title">Instagram post</h5>
+                        <ul class="widget_instagram_items">
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/01.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/02.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/03.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/04.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/05.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/06.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/07.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/08.png" alt="img"></a></li>
+                            <li><a href="#" class="instagram-thumb"><img src="../../static/userResources/images/blog/instagram/09.png" alt="img"></a></li>
+                        </ul>
+                    </div>
+                    <!--// Instagram Widget-->
+
+                    <!--<div class="widget widget_tags">
+                        <h5 class="widget-title">Tags</h5>
+                        <div class="tagcloud">
+                            <a href="#">Gadgets</a>
+                            <a href="#">Tach</a>
+                            <a href="#">Domain</a>
+                            <a href="#">Website</a>
+                        </div>
+                    </div>
+                    <!--// Tags Widget-->
+
+                    <!--<div class="add-widget">
+                        <img src="../../static/userResources/images/blog/add/01.png">
+                    </div>-->
+                    <!--// Add Widget--
+                </div>-->
+                    <!--// Widgets-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--// Blog Page Content-->
+
+
+</main>
+
+<!-- footer area start -->
+{% include "user/footer.html" %}
+<!-- footer area end -->
+
+<!-- back to top area start -->
+<div class="back-to-top">
+    <span class="back-top"><i class="flaticon-up-arrow"></i></span>
+</div>
+<!-- back to top area end -->
+
+
+<!--Jquery-->
+<script src="../../static/userResources/js/jquery-3.4.1.min.js"></script>
+<!--Jquery Migrate-->
+<script src="../../static/userResources/js/jquery-migrate.min.js"></script>
+<!--Jquery UI-->
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<!-- bootstrap -->
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+<!--Waypoints-->
+<script src="../../static/userResources/js/waypoints.min.js"></script>
+<!--Slick Carousel-->
+<script src="../../static/userResources/js/slick.min.js"></script>
+<!-- wow -->
+<script src="../../static/userResources/js/wow.min.js"></script>
+<!--Custom Select Box-->
+<script src="../../static/userResources/js/selectbox.min.js"></script>
+<!--Custom Video Popup-->
+<script src="../../static/userResources/js/jquery.rPopup.js"></script>
+<!-- countdown -->
+<script src="../../static/userResources/js/jquery.countdown.min.js"></script>
+<!--Counter-->
+<script src="../../static/userResources/js/jQuery.rcounter.js"></script>
+<!--Google Map API-->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVyNXoXHkqAwBKJaouZWhHPCP5vg7N0HQ&callback=initMap" async defer></script> -->
+<!-- google map activate js -->
+<script src="../../static/userResources/js/goolg-map-activate.js"></script>
+<!-- imageloaded -->
+<script src="../../static/userResources/js/imagesloaded.pkgd.min.js"></script>
+<script src="../../static/userResources/js/isotope.pkgd.min.js"></script>
+<!-- main js -->
+<script src="../../static/userResources/js/main.js"></script>
+
+</body>
+</html>
